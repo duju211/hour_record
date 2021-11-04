@@ -1,0 +1,61 @@
+---
+title: "Hour Record"
+author: "Julian During"
+date: "4 11 2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = TRUE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+```{r, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+source("libraries.R")
+```
+
+# Idea
+
+Visualise hour records.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
+graph_net <- tar_visnetwork(reporter = "silent")
+```
+
+```{r, echo=FALSE}
+graph_net
+```
+
+# Data
+
+Get the data from the following urls:
+`r glue_collapse(tar_read(rel_urls), sep = ", ")`
+
+```{r, code=read_lines("R/time_splits_raw.R")}
+```
+
+```{r, echo=FALSE}
+tar_read(df_time_splits_raw)
+```
+
+Preprocessing:
+
+```{r, code=read_lines("R/time_splits.R")}
+```
+
+```{r, echo=FALSE}
+tar_read(df_time_splits)
+```
+
+# Visualisation
+
+```{r, code=read_lines("R/vis_average_speed.R")}
+```
+
+```{r, echo=FALSE}
+tar_read(gg_average_speed)
+```
+
