@@ -1,8 +1,12 @@
 ---
 title: "Hour Record"
+description: |
+  Article about the development of the cycling hour record
 author: "Julian During"
 date: "4 11 2021"
 output: html_document
+repository_url: https://github.com/duju211/pin_strava
+creative_commons: CC BY
 ---
 
 ```{r setup, include=FALSE}
@@ -15,11 +19,20 @@ knitr::opts_chunk$set(
 
 ```{r, include=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 source("libraries.R")
+
+Sys.setenv("RSTUDIO_VERSION" = '1.4.1725')
 ```
 
 # Idea
 
-Visualise hour records.
+Visualise the development of the cycling hour record.
+It is a record attempt of cyclyst, who try to cover the longest possible
+distance in one hour. Since 2014 there are unified rules for the hour record.
+Since then there were 6 different record holders. Explore how these records
+compare to each other.
+
+The analysis is realised in a target plan. Look at the graph representation of
+this plan:
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 graph_net <- tar_visnetwork(reporter = "silent")
@@ -34,6 +47,8 @@ graph_net
 Get the data from the following urls:
 `r glue_collapse(tar_read(rel_urls), sep = ", ")`
 
+Map over the different urls and save the data along with the url adress:
+
 ```{r, code=read_lines("R/time_splits_raw.R")}
 ```
 
@@ -41,7 +56,8 @@ Get the data from the following urls:
 tar_read(df_time_splits_raw)
 ```
 
-Preprocessing:
+Preprocessing of the raw data. Extract the rider name and preprocess the kpi
+columns.
 
 ```{r, code=read_lines("R/time_splits.R")}
 ```
@@ -51,6 +67,8 @@ tar_read(df_time_splits)
 ```
 
 # Visualisation
+
+Plot the development of the average speeds. Differentiate the riders by color:
 
 ```{r, code=read_lines("R/vis_average_speed.R")}
 ```

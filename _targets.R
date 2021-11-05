@@ -17,5 +17,9 @@ list(
   tar_target(df_time_splits, time_splits(df_time_splits_raw)),
   tar_target(gg_average_speed, vis_average_speed(df_time_splits)),
 
-  tar_render(hour_record, "hour_record.Rmd")
+  tar_render(hour_record, "hour_record.Rmd"),
+  tar_render(
+    hour_record_post, "hour_record.Rmd",
+    output_format = distill::distill_article(),
+    output_file = "hour_record_post.html")
 )
