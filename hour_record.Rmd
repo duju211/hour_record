@@ -7,6 +7,7 @@ date: "4 11 2021"
 output: html_document
 repository_url: https://github.com/duju211/hour_record
 creative_commons: CC BY
+base_url: https://www.datannery.com/posts/hour-record/
 ---
 
 ```{r setup, include=FALSE}
