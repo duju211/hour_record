@@ -5,7 +5,7 @@ description: |
 author: "Julian During"
 date: "4 11 2021"
 output: html_document
-repository_url: https://github.com/duju211/pin_strava
+repository_url: https://github.com/duju211/hour_record
 creative_commons: CC BY
 ---
 
