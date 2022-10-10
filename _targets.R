@@ -10,7 +10,9 @@ list(
       "http://www.wolfgang-menn.de/dennis.htm",
       "http://www.wolfgang-menn.de/dowsett.htm",
       "http://www.wolfgang-menn.de/wiggins.htm",
-      "http://www.wolfgang-menn.de/campenaerts.htm")),
+      "http://www.wolfgang-menn.de/campenaerts.htm",
+      "http://www.wolfgang-menn.de/bigham.htm",
+      "http://www.wolfgang-menn.de/ganna.htm")),
 
   tar_target(
     df_time_splits_raw, time_splits_raw(rel_urls), pattern = map(rel_urls)),
